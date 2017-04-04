@@ -4,16 +4,24 @@ import sys, datetime
 
 args = sys.argv[1:] # drops the inital invocation argument
 
+usage = "usage: ./mac_conversion.py [ -T | -D ] [ -f \033[4mfilename\033[0m | -h \033[4mhex value\033[0m ]"
+
 if "-T" in args:
     date_or_time = "Time"
-else:
+elif "-D" in args:
     date_or_time = "Date"
+else:
+    print(usage)
+    sys.exit(1)
 
 if "-f" in args:
     with open(args[-1], "r") as o:
         val = o.readline()
-else:
+elif "-h" in args:
     val = args[-1]
+else:
+    print(usage)
+    sys.exit(1)
 
 def hex_to_time(hex_string):
     int_val = int(hex_string[2:], 16)
