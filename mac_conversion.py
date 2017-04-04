@@ -4,7 +4,9 @@ import sys, datetime
 
 args = sys.argv[1:] # drops the inital invocation argument
 
-usage = "usage: ./mac_conversion.py [ -T | -D ] [ -f \033[4mfilename\033[0m | -h \033[4mhex value\033[0m ]"
+usage = "usage: ./mac_conversion.py [ -T | -D ] [ -f \033[4mfilename\033[0m | -h \033[4mhex value\033[0m ]\n\n"
+invalid_val = usage + "[ERROR]:\n\tInvalid value for conversion: {}\n\tHex values must follow the format '0x1234'\ns"
+no_such_file = usage + "[ERROR]:\n\tNo such file found: {}\n"
 
 if "-T" in args:
     date_or_time = "Time"
@@ -15,13 +17,23 @@ else:
     sys.exit(1)
 
 if "-f" in args:
-    with open(args[-1], "r") as o:
-        val = o.readline()
+    try:
+        with open(args[-1], "r") as o:
+            val = o.readline().strip()
+    except IOError:
+        print(no_such_file.format(args[-1]))
+        sys.exit(1)
+
 elif "-h" in args:
-    val = args[-1]
+    val = args[-1].strip()
 else:
     print(usage)
     sys.exit(1)
+
+if val[:2] != "0x" or len(val[2:]) != 4:
+    print(invalid_val.format(val))
+    sys.exit(1)
+
 
 def hex_to_time(hex_string):
     int_val = int(hex_string[2:], 16)
