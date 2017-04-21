@@ -11,9 +11,9 @@ class logical:
         self.result = 0
     def logical_to_physical(self):
         self.result = self.logical_known + self.partition_start
-        print(self.result)
+        return self.result
 
     def logical_to_cluster(self):
         self.result = ((self.logical_known - (self.fat_tables*self.fat_length) - self.reserved)/self.cluster_size) + 2
-        print(self.result)
+        return self.result
 
