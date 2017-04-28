@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from logical import logical
 from physical import physical
 from cluster import cluster

@@ -1,4 +1,5 @@
 import binascii
+import sys
 
 partition_types = {
     0x01: "DOS 12-bit FAT",
@@ -110,5 +111,4 @@ def get_filesystem_info(f, start_sector):
 def partitions(filename):
     with open(filename, "rb") as f:
         print_partition_info(f)
-
 
