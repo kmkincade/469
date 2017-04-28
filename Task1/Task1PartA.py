@@ -2,13 +2,14 @@
 from logical import logical
 from physical import physical
 from cluster import cluster
+import sys
 
 def convert_to_byte(sector, bytes_per_sector):
     return sector*bytes_per_sector
 
 def main():
     i = 0
-    commandString = input('Enter your command: ')
+    commandString = sys.argv[1]
     inputValues = commandString.replace('=', ' ').split()
     #start command with address4forensics
     if inputValues[0] != "address4forensics":
