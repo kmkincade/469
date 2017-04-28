@@ -85,7 +85,7 @@ def print_partition_info(f):
                         print("Sectors per cluster: " + str(sectors_per_cluster) + " sectors")
                     elif i == 2:
                         fat_count += int(''.join(information[0:1]), 16)
-                        if name.__contains__("16-bit"):
+                        if (name.__contains__("16-bit") | name.__contains__("12-bit")):
                             fat_size += int(''.join(reversed(information[6:8])), 16)
                             cluster_2_start += int(''.join(reversed(information[1:3])), 16)
                     elif i == 3:
