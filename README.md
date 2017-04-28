@@ -1,6 +1,7 @@
 Contributions: 
-    Joel Christiansen:
-        mac_conversion, load and extract the partiton tables from the MBR, MakeFile, Readme
+
+* Joel Christiansen: mac_conversion, load and extract the partiton tables from the MBR, MakeFile, Readme
+
 
 Configuration:
 
