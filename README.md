@@ -9,5 +9,7 @@ Configuration:
     To use the Aquisition, Authentication, and Analysis tool, call `./Task2/Task2.py [filename]`
 
 Screenshots:
-    ![mac conversion](screenshots/mac_conversion.png)
-    ![Acquisition, Authentication, and Analysis](screenshots/AAA.png)
+
+    ![mac conversion](screenshots/mac_conversion.png | width=100)
+    ![Acquisition, Authentication, and Analysis](screenshots/AAA.png | width=100)
+
