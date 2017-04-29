@@ -3,13 +3,18 @@ from logical import logical
 from physical import physical
 from cluster import cluster
 import sys
+import shlex
 
 def convert_to_byte(sector, bytes_per_sector):
     return sector*bytes_per_sector
 
 def main():
     i = 0
-    commandString = sys.argv[1]
+    #getting command line arguments and converting into string
+    commandString = ' '.join(shlex.quote(arg) for arg in sys.argv)
+    #eliminating file name portion of argument list
+    commandString = commandString.split(' ', 1)[1]
+    #creating appropriate array with all the flags and values
     inputValues = commandString.replace('=', ' ').split()
     #start command with address4forensics
     if inputValues[0] != "address4forensics":
