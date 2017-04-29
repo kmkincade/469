@@ -12,8 +12,6 @@ def main():
     i = 0
     #getting command line arguments and converting into string
     commandString = ' '.join(shlex.quote(arg) for arg in sys.argv)
-    #eliminating file name portion of argument list
-    commandString = commandString.split(' ', 1)[1]
     #creating appropriate array with all the flags and values
     inputValues = commandString.replace('=', ' ').split()
     #convert from logiacl to either physical or cluster
