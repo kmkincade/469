@@ -1,6 +1,7 @@
 Contributions: 
 
 * Joel Christiansen: mac_conversion, load and extract the partiton tables from the MBR, MakeFile, Readme
+* Katherine Kincade: address4forensics, MD5 and SHA-1 hashing, and extract information from VBR
 
 
 Configuration:
